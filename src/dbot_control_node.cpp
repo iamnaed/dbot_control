@@ -26,11 +26,10 @@ int main(int argc, char** argv)
     Robot dbot = rb.build_dbot_robot();
     RCLCPP_INFO(logger, dbot.to_string().c_str());
 
-    Eigen::Vector3d test{1.2,0,0};
-    RCLCPP_INFO_STREAM(logger, test);
-
     // Spin
-    rclcpp::spin(dbot_control_node);
+    rclcpp::executors::SingleThreadedExecutor executor;
+    executor.add_node(dbot_control_node);
+    executor.spin();
 
     // Cleanup
     rclcpp::shutdown();
