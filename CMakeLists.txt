@@ -41,10 +41,4 @@ install(
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# Install folders
-install(
-  DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}/
-)
-
 ament_package()
